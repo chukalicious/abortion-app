@@ -9,10 +9,9 @@ import UserInfoForm from "./components/UserInfoForm";
 import Footer from "./common/Footer";
 function App() {
   const [formObject, setFormObject] = useState({ age: "", state: "" });
-  console.log("formObject", formObject.state);
 
-  const getForm = (sta) => {
-    setFormObject({ ...formObject, state: sta });
+  const getForm = (sta, ag) => {
+    setFormObject({ ...formObject, state: sta, age: ag });
   };
 
   useEffect(() => {

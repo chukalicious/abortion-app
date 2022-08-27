@@ -3,7 +3,6 @@ import { states } from "../data/states";
 import { Combobox } from "@headlessui/react";
 
 const UserInfoForm = (props) => {
-  console.log("userInfoForm: props: ", props);
   const [selectedState, setSelectedState] = useState(states);
 
   const [query, setQuery] = useState("");
@@ -33,7 +32,7 @@ const UserInfoForm = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.getForm(formValues.state);
+    props.getForm(formValues.state, formValues.age);
     setSelectedState("");
     setFormValues({
       age: "",
