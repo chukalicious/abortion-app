@@ -3,18 +3,21 @@ import { states } from "../data/states";
 import { Combobox } from "@headlessui/react";
 
 const UserInfoForm = () => {
-  const [errors, setErrors] = useState({
-    ageErrorMs: "",
-    stateErrorMs: "",
-  });
-  console.log("errors", errors);
-
   const [selectedState, setSelectedState] = useState(states);
+
   const [query, setQuery] = useState("");
+
   const [formValues, setFormValues] = useState({
     age: "",
     state: selectedState,
   });
+
+  const [errors, setErrors] = useState({
+    ageErrorMs: "",
+    stateErrorMs: "",
+  });
+
+  const [disable, setDisable] = useState(true);
 
   const filteredStates =
     query === ""
@@ -28,7 +31,6 @@ const UserInfoForm = () => {
   };
 
   const katSubmit = (e) => {
-    e.preventDefault();
     setSelectedState("");
     setFormValues({
       age: "",
@@ -69,6 +71,7 @@ const UserInfoForm = () => {
         stateErrorMs: "",
         ageErrorMs: "",
       });
+      setDisable(false);
     }
   };
 
@@ -111,7 +114,13 @@ const UserInfoForm = () => {
         {errors.ageErrorMs !== "" ? (
           <p className="text-red-500">{errors.ageErrorMs}</p>
         ) : null}
-        <button type="submit">submit</button>
+        <button
+          type="submit"
+          disabled={disable}
+          className="disabled:text-green-500"
+        >
+          submit
+        </button>
       </form>
     </div>
   );
