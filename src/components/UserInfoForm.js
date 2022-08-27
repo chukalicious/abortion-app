@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { states } from "../data/states";
 import { Combobox } from "@headlessui/react";
-import { set, useForm } from "react-hook-form";
 
 const UserInfoForm = () => {
   const [errors, setErrors] = useState({
