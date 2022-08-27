@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
+import { useEffect } from "react";
+import axios from "axios";
+import { config, baseUrl, minorsEndpoint } from "./axiosConfig";
+
+import Header from "./common/Header";
+import UserInfoForm from "./components/UserInfoForm";
+import Footer from "./common/Footer";
 function App() {
+  useEffect(() => {
+    axios
+      .get(`${baseUrl}${minorsEndpoint}`, config)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <UserInfoForm />
+      <Footer />
     </div>
   );
 }
