@@ -30,7 +30,7 @@ const UserInfoForm = () => {
     setFormValues({ ...formValues, age: e.target.value, state: query });
   };
 
-  const katSubmit = (e) => {
+  const handleSubmit = (e) => {
     setSelectedState("");
     setFormValues({
       age: "",
@@ -77,7 +77,7 @@ const UserInfoForm = () => {
 
   return (
     <div className="flex flex-col w-full">
-      <form onSubmit={katSubmit} className="flex flex-col w-[85%] mx-auto">
+      <form onSubmit={handleSubmit} className="flex flex-col w-[85%] mx-auto">
         <Combobox value={selectedState} onChange={setSelectedState}>
           <label htmlFor="state" className="w-[50%] text-left ml-[25%]">
             Select your state:
