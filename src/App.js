@@ -5,14 +5,15 @@ import axios from "axios";
 import { config, baseUrl, statesEndpoint } from "./axiosConfig";
 
 import Header from "./common/Header";
-import UserInfoForm from "./components/UserInfoForm";
+// import UserInfoForm from "./components/UserInfoForm";
+import NewForm from "./components/NewForm";
 import Footer from "./common/Footer";
 function App() {
-  const [formObject, setFormObject] = useState({ age: "", state: "" });
+  const [formObject] = useState({ age: "", state: "" });
 
-  const getForm = (sta, ag) => {
-    setFormObject({ ...formObject, state: sta, age: ag });
-  };
+  // const getForm = (sta, ag) => {
+  //   setFormObject({ ...formObject, state: sta, age: ag });
+  // };
 
   useEffect(() => {
     axios
@@ -24,7 +25,8 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <UserInfoForm getForm={getForm} />
+      {/* <UserInfoForm getForm={getForm} /> */}
+      <NewForm />
       <Footer />
     </div>
   );
