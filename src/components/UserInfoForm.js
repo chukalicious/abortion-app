@@ -2,7 +2,8 @@ import { useState } from "react";
 import { states } from "../data/states";
 import { Combobox } from "@headlessui/react";
 
-const UserInfoForm = () => {
+const UserInfoForm = (props) => {
+  console.log("userInfoForm: props: ", props);
   const [selectedState, setSelectedState] = useState(states);
 
   const [query, setQuery] = useState("");
@@ -31,6 +32,8 @@ const UserInfoForm = () => {
   };
 
   const handleSubmit = (e) => {
+    e.preventDefault();
+    props.getForm(formValues.state);
     setSelectedState("");
     setFormValues({
       age: "",
@@ -117,7 +120,7 @@ const UserInfoForm = () => {
         <button
           type="submit"
           disabled={disable}
-          className="disabled:text-green-500"
+          className="disabled:text-red-600"
         >
           submit
         </button>
