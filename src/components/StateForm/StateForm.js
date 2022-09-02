@@ -10,10 +10,7 @@ import {
 const StateForm = (props) => {
   //this is all for the Combobox
   const [states, setStates] = useState([]);
-  // console.log("states:", states);
   const [search, setSearch] = useState("");
-  // console.log("search: ", search);
-  // const [results] = useState([]);
 
   const [stateObj, setStateObj] = useState({});
   console.log("StateForm: stateObj: ", stateObj);
