@@ -1,3 +1,3 @@
-import StateOptionContainer from "./StateOptionContainer.js.js";
+import StateOptionContainer from "./StateOptionContainer.js";
 
 export default StateOptionContainer;
