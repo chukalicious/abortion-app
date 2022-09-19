@@ -16,10 +16,13 @@ const StateOption = (props) => {
   const defaultedValue = "Select your State";
 
   return (
-    <div className="flex w-full flex-col">
+    <div className="flex w-[95%] flex-col bg-base-200 py-16 min-h-[50vh] mx-auto">
+      <h2 className="pt-10 text-xl font-normal pl-4">
+        Select your state from the dropdown below:{" "}
+      </h2>
       {props.stateName && (
         <form
-          className="w-full flex flex-col "
+          className="w-full flex flex-col mt-2"
           onSubmit={(e) => {
             e.preventDefault();
             console.log("submitted!");
@@ -28,7 +31,7 @@ const StateOption = (props) => {
         >
           <select
             name="selectedState"
-            className="select select-primary w-full max-w-xs mx-auto"
+            className="select select-primary w-full "
             onChange={handleChange}
           >
             <option disabled selected>
@@ -40,7 +43,9 @@ const StateOption = (props) => {
               </option>
             ))}
           </select>
-          <button className="btn sm:btn-sm md:btn-md lg:btn-lg">Search</button>
+          <button className="btn btn-primary w-full mx-auto md:btn-md lg:btn-lg mt-14">
+            Search
+          </button>
         </form>
       )}
     </div>

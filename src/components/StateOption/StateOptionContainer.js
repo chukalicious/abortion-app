@@ -20,12 +20,12 @@ const StateOptionContainer = () => {
   }, []);
 
   return (
-    <>
+    <div className="bg-base-200">
       <StateOption stateName={stateName} setStateToSearch={setStateToSearch} />
       {stateToSearch.length > 0 && (
         <StateResultsContainer stateToSearch={stateToSearch} />
       )}{" "}
-    </>
+    </div>
   );
 };
 

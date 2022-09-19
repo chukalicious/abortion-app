@@ -25,7 +25,11 @@ const StateResultsContainer = (props) => {
       .catch((err) => console.log(err));
   }, [props.stateToSearch]);
 
-  return <>{stateObject && <StateResults stateData={stateObject} />}</>;
+  return (
+    <div className="bg-base-200">
+      {stateObject && <StateResults stateData={stateObject} />}
+    </div>
+  );
 };
 
 export default StateResultsContainer;
