@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { baseUrl, minorsEndpoint, config } from "../../utils/axiosConfig";
 import StateOption from "./StateOption";
+import StateResultsContainer from "../StateResults";
 
 const StateOptionContainer = () => {
   // Get list of States to use in the options
   const [stateName, setStateName] = useState("");
-  const [stateToSearch, setStateToSearch] = useState("Select you State");
+  const [stateToSearch, setStateToSearch] = useState("");
   console.log("StateOptionContainer: stateToSearch: ", stateToSearch);
   useEffect(() => {
     axios
@@ -19,7 +20,12 @@ const StateOptionContainer = () => {
   }, []);
 
   return (
-    <StateOption stateName={stateName} setStateToSearch={setStateToSearch} />
+    <>
+      <StateOption stateName={stateName} setStateToSearch={setStateToSearch} />
+      {stateToSearch.length > 0 && (
+        <StateResultsContainer stateToSearch={stateToSearch} />
+      )}{" "}
+    </>
   );
 };
 
