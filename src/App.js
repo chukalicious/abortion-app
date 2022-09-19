@@ -1,30 +1,17 @@
 import "./App.css";
-
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { config, baseUrl, statesEndpoint } from "./axiosConfig";
-
+import { useEffect } from "react";
+import { themeChange } from "theme-change";
 import Header from "./common/Header";
-import UserInfoForm from "./components/UserInfoForm";
+import StateOptionContainer from "./components/StateOption";
 import Footer from "./common/Footer";
 function App() {
-  const [formObject, setFormObject] = useState({ age: "", state: "" });
-
-  const getForm = (sta, ag) => {
-    setFormObject({ ...formObject, state: sta, age: ag });
-  };
-
   useEffect(() => {
-    axios
-      .get(`${baseUrl}${statesEndpoint}${formObject.state}/`, config)
-      .then((res) => console.log(res.data))
-      .catch((err) => console.log(err));
-  }, [formObject]);
-
+    themeChange(false);
+  }, []);
   return (
-    <div className="App">
+    <div>
       <Header />
-      <UserInfoForm getForm={getForm} />
+      <StateOptionContainer />
       <Footer />
     </div>
   );
