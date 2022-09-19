@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import GestationalLimits from "./GestationalLimits";
+import Minors from "./Minors";
 
 const StateResults = (props) => {
   console.log("StateResults: props: ", props);
@@ -22,6 +23,7 @@ const StateResults = (props) => {
       {rules.gestationalLimits && (
         <GestationalLimits gestationalLimits={rules.gestationalLimits} />
       )}
+      {rules.minors && <Minors minors={rules.minors} />}
     </>
   );
 };
