@@ -27,7 +27,9 @@ const StateResultsContainer = (props) => {
 
   return (
     <div className="bg-base-200">
-      {stateObject && <StateResults stateData={stateObject} />}
+      {stateObject && (
+        <StateResults stateData={stateObject} stateName={props.stateToSearch} />
+      )}
     </div>
   );
 };
