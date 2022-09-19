@@ -4,11 +4,7 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [
-    require("@tailwindcss/typography"),
-    [require("daisyui")],
-    require("@tailwindcss/forms"),
-  ],
+
   daisyui: {
     styled: true,
     themes: ["fantasy", "synthwave"],
@@ -19,4 +15,9 @@ module.exports = {
     prefix: "",
     darkTheme: "dark",
   },
+  plugins: [
+    require("@tailwindcss/typography"),
+    require("daisyui"),
+    require("@tailwindcss/forms"),
+  ],
 };
