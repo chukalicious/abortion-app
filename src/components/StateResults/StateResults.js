@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import GestationalLimits from "./GestationalLimits";
+import InsuranceCoverage from "./InsuranceCoverage";
 import Minors from "./Minors";
 
 const StateResults = (props) => {
@@ -45,6 +46,9 @@ const StateResults = (props) => {
             <Minors minors={rules.minors} />
           </div>
         </div>
+      )}
+      {rules.insuranceCoverage && (
+        <InsuranceCoverage insuranceCoverage={rules.insuranceCoverage} />
       )}
     </div>
   );
