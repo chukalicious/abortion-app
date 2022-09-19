@@ -2,10 +2,10 @@
   --my-color: #fff;
 }
 [data-theme="fantasy"] {
-  --my-color: #000;
+  --my-color: #6e0b75;
 }
 [data-theme="synthwave"] {
-  --my-color: #ffabc8;
+  --my-color: #e779c1;
 }
 
 body {
