@@ -13,7 +13,7 @@ module.exports = {
     logs: true,
     rtl: false,
     prefix: "",
-    darkTheme: "dark",
+    darkTheme: "synthwave",
   },
   plugins: [
     require("@tailwindcss/typography"),
