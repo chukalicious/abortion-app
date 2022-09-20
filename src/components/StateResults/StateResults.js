@@ -48,7 +48,17 @@ const StateResults = (props) => {
         </div>
       )}
       {rules.insuranceCoverage && (
-        <InsuranceCoverage insuranceCoverage={rules.insuranceCoverage} />
+        <div
+          tabIndex={0}
+          className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box"
+        >
+          <div className="collapse-title text-xl font-medium">
+            Insurance Coverage
+          </div>
+          <div className="collapse-content">
+            <InsuranceCoverage insuranceCoverage={rules.insuranceCoverage} />
+          </div>
+        </div>
       )}
     </div>
   );
