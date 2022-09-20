@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import GestationalLimits from "./GestationalLimits";
 import InsuranceCoverage from "./InsuranceCoverage";
 import Minors from "./Minors";
+import WaitingPeriods from "./WaitingPeriods";
 
 const StateResults = (props) => {
   console.log("StateResults: props: ", props);
@@ -57,6 +58,19 @@ const StateResults = (props) => {
           </div>
           <div className="collapse-content">
             <InsuranceCoverage insuranceCoverage={rules.insuranceCoverage} />
+          </div>
+        </div>
+      )}
+      {rules.waitingPeriods && (
+        <div
+          tabIndex={0}
+          className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box"
+        >
+          <div className="collapse-title text-xl font-medium">
+            Waiting Periods
+          </div>
+          <div className="collapse-content">
+            <WaitingPeriods waitingPeriods={rules.waitingPeriods} />
           </div>
         </div>
       )}
