@@ -25,7 +25,7 @@ const StateResultsContainer = (props) => {
         }
       })
       .catch((err) => console.log(err));
-  }, [props.stateToSearch]);
+  }, [props.stateToSearch, userAge]);
 
   const getUserAge = (age) => {
     setUserAge(Number(age));
