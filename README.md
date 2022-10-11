@@ -7,3 +7,7 @@ The project was created with [TailwindCSS](https://tailwindcss.com/docs/installa
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 The Project Vision Document can be found at [Project Vision Document](https://github.com/lifeparticle/Markdown-Cheatsheet)
+
+Contributors are welcome! Just fork the repo, pick up an issue and submit a PR. 
+
+PR templates to come soon.
