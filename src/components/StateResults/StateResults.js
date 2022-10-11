@@ -22,7 +22,7 @@ const StateResults = (props) => {
 
   return (
     <div className="bg-base-200 min-h-[50vh] max-w-[95%] mx-auto">
-      <AgeContainer minorsData={rules.minors} />
+      <AgeContainer minorsData={rules.minors} getUserAge={props.getUserAge} />
       <h2 className="pt-10 text-xl font-normal pl-4">
         State Rules for the state of {props.stateName}{" "}
       </h2>{" "}

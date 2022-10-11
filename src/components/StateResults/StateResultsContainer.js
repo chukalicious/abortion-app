@@ -7,6 +7,8 @@ const StateResultsContainer = (props) => {
   console.log("StateResultsContainer: props:", props);
   const [stateObject, setStateObject] = useState(null);
   console.log("StateResultsContainer: stateObject: ", stateObject);
+  const [userAge, setUserAge] = useState("");
+  console.log("StateResultsContainer: userAge: ", userAge);
 
   useEffect(() => {
     axios
@@ -25,10 +27,18 @@ const StateResultsContainer = (props) => {
       .catch((err) => console.log(err));
   }, [props.stateToSearch]);
 
+  const getUserAge = (age) => {
+    setUserAge(Number(age));
+  };
+
   return (
     <div className="bg-base-200">
       {stateObject && (
-        <StateResults stateData={stateObject} stateName={props.stateToSearch} />
+        <StateResults
+          stateData={stateObject}
+          stateName={props.stateToSearch}
+          getUserAge={getUserAge}
+        />
       )}
     </div>
   );
