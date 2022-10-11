@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import AgeContainer from "../Age";
 import GestationalLimits from "./GestationalLimits";
 import InsuranceCoverage from "./InsuranceCoverage";
 import Minors from "./Minors";
@@ -21,6 +22,7 @@ const StateResults = (props) => {
 
   return (
     <div className="bg-base-200 min-h-[50vh] max-w-[95%] mx-auto">
+      <AgeContainer minorsData={rules.minors} />
       <h2 className="pt-10 text-xl font-normal pl-4">
         State Rules for the state of {props.stateName}{" "}
       </h2>{" "}
