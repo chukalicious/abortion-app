@@ -38,6 +38,7 @@ const StateResultsContainer = (props) => {
           stateData={stateObject}
           stateName={props.stateToSearch}
           getUserAge={getUserAge}
+          userAge={userAge}
         />
       )}
     </div>
