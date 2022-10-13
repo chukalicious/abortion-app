@@ -17,6 +17,11 @@ const Age = (props) => {
       props.getAge(age);
     }
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="w-[95%] mx-auto flex flex-col">
       <h2 className="text-xl">
@@ -24,7 +29,7 @@ const Age = (props) => {
         age below:
       </h2>
 
-      <form className="mx-auto flex flex-col w-full">
+      <form className="mx-auto flex flex-col w-full" onSubmit={handleSubmit}>
         {/* must have validation to accept only numbers, use regex */}
 
         <input
