@@ -33,10 +33,9 @@ const StateOption = (props) => {
             name="selectedState"
             className="select select-primary w-full "
             onChange={handleChange}
+            defaultValue
           >
-            <option disabled selected>
-              {defaultedValue}
-            </option>
+            <option disabled>{defaultedValue}</option>
             {props.stateName.sort().map((state, i) => (
               <option key={i} value={state}>
                 {state}

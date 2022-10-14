@@ -3,7 +3,6 @@ import axios from "axios";
 import { baseUrl, minorsEndpoint, config } from "../../utils/axiosConfig";
 import StateOption from "./StateOption";
 import StateResultsContainer from "../StateResults";
-import AgeContainer from "../Age";
 
 const StateOptionContainer = () => {
   // Get list of States to use in the options
@@ -23,7 +22,6 @@ const StateOptionContainer = () => {
   return (
     <div className="bg-base-200">
       <StateOption stateName={stateName} setStateToSearch={setStateToSearch} />
-      <AgeContainer />
       {stateToSearch.length > 0 && (
         <StateResultsContainer stateToSearch={stateToSearch} />
       )}{" "}
