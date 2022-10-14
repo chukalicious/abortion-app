@@ -21,6 +21,7 @@ const Age = (props) => {
     }
   };
 
+  // this state is not being updated
   const checkIfMinor = (input) => {
     if (input !== "" && props.minorsData.below_age > Number(input)) {
       setIsMinor(true);
@@ -54,7 +55,7 @@ const Age = (props) => {
       </form>
       <div>
         <p>Age entered: {age}</p>
-        {age !== "" && isMinor ? <p>this is true</p> : null}
+        {age !== "" && isMinor === true ? <p>this is true</p> : null}
       </div>
     </div>
   );
