@@ -50,7 +50,7 @@ const Age = (props) => {
           name="age"
           value={age}
           onChange={handleChange}
-          className="input input-bordered input-lg w-full max-w-xs input-secondary"
+          className="input input-bordered input-lg w-full max-w-xs input-primary"
         />
       </form>
       <div>

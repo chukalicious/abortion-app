@@ -18,44 +18,49 @@ const StateOption = (props) => {
   const defaultedValue = "Select your State";
 
   return (
-    <div className="flex w-[95%] flex-col bg-base-200 mt-[-.2rem] pb-16 pt-2 min-h-[50vh] mx-auto">
-      <h2 className="text-2xl font-semibold pl-4 pb-2">First:</h2>
-      <h3 className="px-2 text-xl font-normal pl-2 mb-[1rem] ">
-        {" "}
-        Select your state from the dropdown below:{" "}
-      </h3>
-      {props.stateName && (
-        <form
-          className="w-full flex flex-col mt-2"
-          onSubmit={(e) => {
-            e.preventDefault();
-            console.log("submitted!");
-            props.setStateToSearch(selectedState);
-          }}
-        >
-          <select
-            name="selectedState"
-            className="select select-primary w-full mb-[-2.rem] "
-            onChange={handleChange}
-            defaultValue
+    <div className="flex w-[95%] flex-col bg-base-200 mt-[-.2rem] pb-16 pt-2 min-h-[50vh] mx-auto ">
+      <div className="flex flex-col lg:w-[35%] lg:mx-auto">
+        <h2 className="text-2xl font-semibold pl-4 pb-2">First:</h2>
+        <h3 className="px-2 text-xl font-normal pl-2 mb-[1rem] ">
+          {" "}
+          Select your state from the dropdown below:{" "}
+        </h3>
+        {props.stateName && (
+          <form
+            className="w-full flex flex-col mt-2"
+            onSubmit={(e) => {
+              e.preventDefault();
+              console.log("submitted!");
+              props.setStateToSearch(selectedState);
+            }}
           >
-            <option disabled>{defaultedValue}</option>
-            {props.stateName.sort().map((state, i) => (
-              <option key={i} value={state}>
-                {state}
-              </option>
-            ))}
-          </select>
-          <button className="btn btn-primary w-full mx-auto md:btn-md lg:btn-lg mt-14">
-            Search
-          </button>
-        </form>
-      )}
+            <select
+              name="selectedState"
+              className="select select-primary w-full mb-[-2.rem] "
+              onChange={handleChange}
+              defaultValue
+            >
+              <option disabled>{defaultedValue}</option>
+              {props.stateName.sort().map((state, i) => (
+                <option key={i} value={state}>
+                  {state}
+                </option>
+              ))}
+            </select>
+            <button className="btn btn-primary w-full mx-auto md:btn-md lg:btn-lg mt-14">
+              Search
+            </button>
+          </form>
+        )}
+      </div>
       <div className="flex flex-col w-full border-opacity-50">
         <div className="grid h-8"></div>
         <div className="divider">OR</div>
 
         <div className=" card bg-base-300 rounded-box place-items-center">
+          {/* <div className="grid h-20 card  rounded-box place-items-center">
+            Map coming soon
+          </div> */}
           <MapContainer />
         </div>
       </div>
