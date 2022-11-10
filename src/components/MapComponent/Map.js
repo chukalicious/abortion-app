@@ -1,13 +1,60 @@
+import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
+import { useState, useCallback } from "react";
+
+import { mapStyle } from "./mapStyle";
+
+const containerStyle = {
+  width: "100%",
+  height: "45vh",
+};
+
+const center = {
+  lat: 39.624,
+  lng: -95.962,
+};
+
+const options = {
+  styles: mapStyle,
+};
 const Map = () => {
+  const { isLoaded } = useJsApiLoader({
+    id: "google-map-script",
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+  });
+
+  const [map, setMap] = useState(null);
+
+  const onLoad = useCallback(function callback(map) {
+    // This is just an example of getting and using the map instance!!! don't just blindly copy!
+    const bounds = new window.google.maps.LatLngBounds(center);
+    map.fitBounds(bounds);
+
+    setMap(map);
+  }, []);
+
+  const onUnmount = useCallback(function callback(map) {
+    setMap(null);
+  }, []);
+
   return (
     <div className="hero max-h-fit bg-base-200">
       <div className="hero-content flex-col-reverse w-full lg:flex-row-reverse">
         <div className="flex w-full mx-auto h-[45vh]">
-          <img
-            src="https://placeimg.com/260/400/arch"
-            className="w-full mx-auto rounded-md shadow-2xl"
-            alt="random"
-          />
+          {isLoaded ? (
+            <GoogleMap
+              mapContainerStyle={containerStyle}
+              center={center}
+              zoom={4}
+              onLoad={onLoad}
+              onUnmount={onUnmount}
+              options={options}
+            >
+              {/* Child components, such as markers, info windows, etc. */}
+              <></>
+            </GoogleMap>
+          ) : (
+            <></>
+          )}
         </div>
         <div>
           <h1 className="text-2xl font-bold">

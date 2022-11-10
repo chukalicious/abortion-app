@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { config, baseUrl, statesEndpoint } from "../../utils/axiosConfig";
+import {
+  config,
+  baseUrl,
+  statesEndpoint,
+} from "../../utils/abortionApiAxiosConfig";
 import StateResults from "./StateResults";
 
 const StateResultsContainer = (props) => {

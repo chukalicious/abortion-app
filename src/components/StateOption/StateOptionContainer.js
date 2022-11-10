@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { baseUrl, minorsEndpoint, config } from "../../utils/axiosConfig";
+import {
+  baseUrl,
+  minorsEndpoint,
+  config,
+} from "../../utils/abortionApiAxiosConfig";
 import StateOption from "./StateOption";
 import StateResultsContainer from "../StateResults";
 
