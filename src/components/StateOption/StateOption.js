@@ -2,6 +2,8 @@
 // needs handlechange to set the state at SubmitEvent
 // needs onsubmit
 
+import MapContainer from "../MapComponent";
+
 import { useState } from "react";
 
 const StateOption = (props) => {
@@ -49,6 +51,14 @@ const StateOption = (props) => {
           </button>
         </form>
       )}
+      <div className="flex flex-col w-full border-opacity-50">
+        <div className="grid h-8"></div>
+        <div className="divider">OR</div>
+
+        <div className=" card bg-base-300 rounded-box place-items-center">
+          <MapContainer />
+        </div>
+      </div>
     </div>
   );
 };
