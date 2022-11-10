@@ -5,7 +5,7 @@ import { themeChange } from "theme-change";
 
 const Header = () => {
   const [isChecked, setIsCheck] = useState(false);
-  const [theme, setTheme] = useState("cmyk");
+  // const [theme, setTheme] = useState("cmyk");
 
   useEffect(() => {
     themeChange(false);
@@ -30,9 +30,9 @@ const Header = () => {
     // setTheme(localStorage.getItem("theme"));
   };
 
-  useEffect(() => {
-    setTheme(theme);
-  }, [isChecked]);
+  // useEffect(() => {
+  //   setTheme(theme);
+  // }, [isChecked]);
 
   return (
     <div className="navbar bg-base-100">
@@ -80,7 +80,7 @@ const Header = () => {
               <MdOutlineDarkMode />{" "}
             </span>
             <input
-              data-toggle-theme="night,cmyk"
+              data-toggle-theme="cmyk,night"
               data-act-class="ACTIVECLASS"
               type="checkbox"
               className="toggle toggle-primary"
