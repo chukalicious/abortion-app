@@ -1,6 +1,23 @@
+import { useState, useEffect } from "react";
+import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
+
+import { themeChange } from "theme-change";
+
 const Header = () => {
+  const [isChecked, setIsCheck] = useState(false);
+  // const [theme, setTheme] = useState("cmyk");
+
+  useEffect(() => {
+    themeChange(false);
+  }, []);
+
+  const handleChecked = (e) => {
+    setIsCheck(!isChecked);
+    e.target.blur();
+  };
+
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 text-neutral">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost btn-circle">
@@ -39,13 +56,24 @@ const Header = () => {
         <h1 className="normal-case font-semibold text-xl">Abortion App</h1>
       </div>
       <div className="navbar-end">
-        <select
-          data-choose-theme
-          className="select select-ghost w-full max-w-xs"
-        >
-          <option value="night">dark</option>
-          <option value="cmyk">light</option>
-        </select>
+        <div className="form-control flex w-[fit]">
+          <label className="cursor-pointer label">
+            <span className="text-3xl px-2">
+              <MdOutlineDarkMode />{" "}
+            </span>
+            <input
+              data-toggle-theme="cmyk,night"
+              data-act-class="ACTIVECLASS"
+              type="checkbox"
+              className="toggle toggle-primary"
+              checked={isChecked}
+              onChange={handleChecked}
+            />
+            <span className="text-3xl px-2">
+              <MdOutlineLightMode />{" "}
+            </span>
+          </label>
+        </div>
       </div>
     </div>
   );
