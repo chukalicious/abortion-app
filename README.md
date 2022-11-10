@@ -8,7 +8,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 The Project Vision Document can be found at [Project Vision Document](https://github.com/lifeparticle/Markdown-Cheatsheet)
 
-## Contributing to this repo:
+You can get a preview of the app here: [Deployment](https://abortion-app.vercel.app/)
+
+## Contributing to this repo: 
 
 Contributors are welcome! Just fork the repo, pick up an issue and submit a PR. You can also recommend issues and features. 
 
