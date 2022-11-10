@@ -1,5 +1,5 @@
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 
 import { mapStyle } from "./mapStyle";
 
@@ -17,6 +17,7 @@ const options = {
   styles: mapStyle,
 };
 const Map = () => {
+  const [zoom, setZoom] = useState(4);
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
@@ -36,15 +37,19 @@ const Map = () => {
     setMap(null);
   }, []);
 
+  useEffect(() => {
+    setZoom(4);
+  }, []);
+
   return (
     <div className="hero max-h-fit bg-base-200">
       <div className="hero-content flex-col-reverse w-full lg:flex-row-reverse">
-        <div className="flex w-full mx-auto h-[45vh]">
+        <div className="flex w-full mx-auto h-[45vh] lg:w-[50%]">
           {isLoaded ? (
             <GoogleMap
               mapContainerStyle={containerStyle}
               center={center}
-              zoom={4}
+              zoom={zoom}
               onLoad={onLoad}
               onUnmount={onUnmount}
               options={options}
@@ -56,14 +61,14 @@ const Map = () => {
             <></>
           )}
         </div>
-        <div>
-          <h1 className="text-2xl font-bold">
+        <div className="flex flex-col lg:w-[50%] lg:mx-auto lg:mt-[-25vh] ">
+          <h1 className="text-2xl font-bold lg:mx-auto lg:mb-4">
             Search for a location on the map
           </h1>
-          <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+          <div className="card flex flex-shrink-0 w-full max-w-sm shadow-sm bg-base-100 lg:mx-auto">
             <div className="card-body">
               <div className="form-control">
-                <div className="input-group">
+                <div className="input-group ">
                   <input
                     type="text"
                     placeholder="Search…"
