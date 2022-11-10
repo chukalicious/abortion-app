@@ -1,6 +1,6 @@
 export const config = {
   headers: {
-    token: process.env.REACT_APP_API_KEY,
+    token: process.env.REACT_APP_ABORTION_API_KEY,
     "Access-Control-Allow-Origin": "*",
   },
 };
