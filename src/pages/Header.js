@@ -43,8 +43,8 @@ const Header = () => {
           data-choose-theme
           className="select select-ghost w-full max-w-xs"
         >
-          <option value="synthwave">dark</option>
-          <option value="fantasy">light</option>
+          <option value="night">dark</option>
+          <option value="cmyk">light</option>
         </select>
       </div>
     </div>

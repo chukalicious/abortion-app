@@ -7,7 +7,7 @@ module.exports = {
 
   daisyui: {
     styled: true,
-    themes: ["fantasy", "synthwave"],
+    themes: ["cmyk", "night"],
     base: true,
     utils: true,
     logs: true,

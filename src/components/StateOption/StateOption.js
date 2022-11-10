@@ -16,10 +16,12 @@ const StateOption = (props) => {
   const defaultedValue = "Select your State";
 
   return (
-    <div className="flex w-[95%] flex-col bg-base-200 py-16 min-h-[50vh] mx-auto">
-      <h2 className="pt-10 text-xl font-normal pl-4">
+    <div className="flex w-[95%] flex-col bg-base-200 mt-[-.2rem] pb-16 pt-2 min-h-[50vh] mx-auto">
+      <h2 className="text-2xl font-semibold pl-4 pb-2">First:</h2>
+      <h3 className="px-2 text-xl font-normal pl-2 mb-[1rem] ">
+        {" "}
         Select your state from the dropdown below:{" "}
-      </h2>
+      </h3>
       {props.stateName && (
         <form
           className="w-full flex flex-col mt-2"
@@ -31,7 +33,7 @@ const StateOption = (props) => {
         >
           <select
             name="selectedState"
-            className="select select-primary w-full "
+            className="select select-primary w-full mb-[-2.rem] "
             onChange={handleChange}
             defaultValue
           >

@@ -2,9 +2,10 @@ import "./App.css";
 import { useEffect } from "react";
 import { themeChange } from "theme-change";
 
-import Header from "./common/Header";
+import Header from "./pages/Header";
+import Home from "./pages/Home";
 import StateOptionContainer from "./components/StateOption";
-import Footer from "./common/Footer";
+import Footer from "./pages/Footer";
 function App() {
   useEffect(() => {
     themeChange(false);
@@ -12,6 +13,7 @@ function App() {
   return (
     <div>
       <Header />
+      <Home />
       <StateOptionContainer />
       <Footer />
     </div>
