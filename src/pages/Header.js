@@ -1,4 +1,37 @@
+import { useState, useEffect } from "react";
+import { themeChange } from "theme-change";
+
 const Header = () => {
+  const [isChecked, setIsCheck] = useState(false);
+  const [theme, setTheme] = useState("cmyk");
+
+  useEffect(() => {
+    themeChange(false);
+  }, []);
+
+  const handleChecked = (e) => {
+    setIsCheck(!isChecked);
+    e.target.blur();
+    if (isChecked) {
+      if (!localStorage.getItem("theme")) {
+        localStorage.setItem("theme", theme);
+      } else {
+        if (localStorage.getItem("theme") === "cmyk") {
+          localStorage.setItem("theme", "night");
+        } else {
+          localStorage.setItem("theme", "cmyk");
+        }
+      }
+    } else {
+      localStorage.setItem("theme", "cmyk");
+    }
+    setTheme(localStorage.getItem("theme"));
+  };
+
+  useEffect(() => {
+    setTheme(theme);
+  }, [isChecked]);
+
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -38,14 +71,20 @@ const Header = () => {
       <div className="navbar-center">
         <h1 className="normal-case font-semibold text-xl">Abortion App</h1>
       </div>
+      <div className="form-control w-52">
+        <label className="cursor-pointer label">
+          <span className="label-text">theme</span>
+          <input
+            data-toggle-theme="night,cmyk"
+            data-act-class="ACTIVECLASS"
+            type="checkbox"
+            className="toggle toggle-primary"
+            checked={isChecked}
+            onChange={handleChecked}
+          />
+        </label>
+      </div>
       <div className="navbar-end">
-        <select
-          data-choose-theme
-          className="select select-ghost w-full max-w-xs"
-        >
-          <option value="night">dark</option>
-          <option value="cmyk">light</option>
-        </select>
       </div>
     </div>
   );
