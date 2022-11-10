@@ -59,18 +59,18 @@ const Header = () => {
         <div className="form-control flex w-[fit]">
           <label className="cursor-pointer label">
             <span className="text-3xl px-2">
-              <MdOutlineDarkMode />{" "}
+              <MdOutlineLightMode />{" "}
             </span>
             <input
               data-toggle-theme="cmyk,night"
               data-act-class="ACTIVECLASS"
               type="checkbox"
-              className="toggle toggle-primary"
-              checked={isChecked}
+              className="toggle toggle-primary hover:text-primary"
+              // checked={isChecked}
               onChange={handleChecked}
             />
             <span className="text-3xl px-2">
-              <MdOutlineLightMode />{" "}
+              <MdOutlineDarkMode />{" "}
             </span>
           </label>
         </div>
