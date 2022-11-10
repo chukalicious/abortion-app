@@ -14,28 +14,10 @@ const Header = () => {
   const handleChecked = (e) => {
     setIsCheck(!isChecked);
     e.target.blur();
-    // if (isChecked) {
-    //   if (!localStorage.getItem("theme")) {
-    //     localStorage.setItem("theme", theme);
-    //   } else {
-    //     if (localStorage.getItem("theme") === "cmyk") {
-    //       localStorage.setItem("theme", "night");
-    //     } else {
-    //       localStorage.setItem("theme", "cmyk");
-    //     }
-    //   }
-    // } else {
-    //   localStorage.setItem("theme", "cmyk");
-    // }
-    // setTheme(localStorage.getItem("theme"));
   };
 
-  // useEffect(() => {
-  //   setTheme(theme);
-  // }, [isChecked]);
-
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 text-neutral">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost btn-circle">
