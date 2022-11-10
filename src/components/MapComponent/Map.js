@@ -1,5 +1,5 @@
-import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
-import { useState, useCallback, useEffect } from "react";
+import { GoogleMap, useLoadScript } from "@react-google-maps/api";
+import { useState, useCallback, useRef } from "react";
 
 import { mapStyle } from "./mapStyle";
 
@@ -7,6 +7,8 @@ const containerStyle = {
   width: "100%",
   height: "45vh",
 };
+
+const libraries = ["places"];
 
 const center = {
   lat: 39.624,
@@ -17,29 +19,18 @@ const options = {
   styles: mapStyle,
 };
 const Map = () => {
-  const [zoom, setZoom] = useState(4);
-  const { isLoaded } = useJsApiLoader({
-    id: "google-map-script",
+  const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    libraries,
   });
 
-  const [map, setMap] = useState(null);
-
-  const onLoad = useCallback(function callback(map) {
-    // This is just an example of getting and using the map instance!!! don't just blindly copy!
-    const bounds = new window.google.maps.LatLngBounds(center);
-    map.fitBounds(bounds);
-
-    setMap(map);
+  const mapRef = useRef();
+  const onMapLoad = useCallback((map) => {
+    mapRef.current = map;
   }, []);
 
-  const onUnmount = useCallback(function callback(map) {
-    setMap(null);
-  }, []);
-
-  useEffect(() => {
-    setZoom(4);
-  }, []);
+  if (loadError) return "Error";
+  if (!isLoaded) return "Loading...";
 
   return (
     <div className="hero max-h-fit bg-base-200">
@@ -49,9 +40,7 @@ const Map = () => {
             <GoogleMap
               mapContainerStyle={containerStyle}
               center={center}
-              zoom={zoom}
-              onLoad={onLoad}
-              onUnmount={onUnmount}
+              zoom={4}
               options={options}
             >
               {/* Child components, such as markers, info windows, etc. */}
