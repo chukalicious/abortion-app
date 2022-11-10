@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
+
 import { themeChange } from "theme-change";
 
 const Header = () => {
@@ -12,20 +14,20 @@ const Header = () => {
   const handleChecked = (e) => {
     setIsCheck(!isChecked);
     e.target.blur();
-    if (isChecked) {
-      if (!localStorage.getItem("theme")) {
-        localStorage.setItem("theme", theme);
-      } else {
-        if (localStorage.getItem("theme") === "cmyk") {
-          localStorage.setItem("theme", "night");
-        } else {
-          localStorage.setItem("theme", "cmyk");
-        }
-      }
-    } else {
-      localStorage.setItem("theme", "cmyk");
-    }
-    setTheme(localStorage.getItem("theme"));
+    // if (isChecked) {
+    //   if (!localStorage.getItem("theme")) {
+    //     localStorage.setItem("theme", theme);
+    //   } else {
+    //     if (localStorage.getItem("theme") === "cmyk") {
+    //       localStorage.setItem("theme", "night");
+    //     } else {
+    //       localStorage.setItem("theme", "cmyk");
+    //     }
+    //   }
+    // } else {
+    //   localStorage.setItem("theme", "cmyk");
+    // }
+    // setTheme(localStorage.getItem("theme"));
   };
 
   useEffect(() => {
@@ -71,20 +73,25 @@ const Header = () => {
       <div className="navbar-center">
         <h1 className="normal-case font-semibold text-xl">Abortion App</h1>
       </div>
-      <div className="form-control w-52">
-        <label className="cursor-pointer label">
-          <span className="label-text">theme</span>
-          <input
-            data-toggle-theme="night,cmyk"
-            data-act-class="ACTIVECLASS"
-            type="checkbox"
-            className="toggle toggle-primary"
-            checked={isChecked}
-            onChange={handleChecked}
-          />
-        </label>
-      </div>
       <div className="navbar-end">
+        <div className="form-control flex w-[fit]">
+          <label className="cursor-pointer label">
+            <span className="text-3xl px-2">
+              <MdOutlineDarkMode />{" "}
+            </span>
+            <input
+              data-toggle-theme="night,cmyk"
+              data-act-class="ACTIVECLASS"
+              type="checkbox"
+              className="toggle toggle-primary"
+              checked={isChecked}
+              onChange={handleChecked}
+            />
+            <span className="text-3xl px-2">
+              <MdOutlineLightMode />{" "}
+            </span>
+          </label>
+        </div>
       </div>
     </div>
   );
