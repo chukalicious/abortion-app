@@ -1,52 +1,118 @@
 const GestationalLimits = (props) => {
   console.log("GestationalLimits: props: ", props);
   return (
-    <div>
+    <div className="carousel carousel-center max-w-md p-4 space-x-4 bg-neutral rounded-box">
       {props.gestationalLimits.exception_health ? (
-        <p>
-          Allows {props.gestationalLimits.exception_health.toLowerCase()} health
-          exception(s).{" "}
-        </p>
+        <div className="carousel-item">
+          <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card-body">
+              <p>
+                Allows {props.gestationalLimits.exception_health.toLowerCase()}{" "}
+                health exception(s).{" "}
+              </p>
+            </div>
+          </div>
+        </div>
       ) : (
-        <p>
-          This state does not make exceptions for life threatening health
-          conditions to the pregnant person.{" "}
-        </p>
+        <div className="carousel-item">
+          <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card-body">
+              <p>
+                This state does not make exceptions for life threatening health
+                conditions to the pregnant person.{" "}
+              </p>
+            </div>
+          </div>
+        </div>
       )}
       {props.gestationalLimits.banned_after_weeks_since_LMP === 99 ? (
-        <p>
-          In this state abortions are banned after the fetus has reached
-          viability.
-        </p>
+        <div className="carousel-item">
+          <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card-body">
+              <p>
+                In this state abortions are banned after the fetus has reached
+                viability.
+              </p>
+            </div>
+          </div>
+        </div>
       ) : props.gestationalLimits.banned_after_weeks_since_LMP === 28 ? (
-        <p>Abortions are banned after the third trimester. </p>
+        <div className="carousel-item">
+          <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card-body">
+              <p>Abortions are banned after the third trimester.</p>
+            </div>
+          </div>
+        </div>
       ) : props.gestationalLimits.banned_after_weeks_since_LMP === 22 ? (
-        <p>Abortions are banned "post-fertilization".</p>
+        <div className="carousel-item">
+          <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card-body">
+              <p>Abortions are banned "post-fertilization".</p>
+            </div>
+          </div>
+        </div>
       ) : props.gestationalLimits.banned_after_weeks_since_LMP === 0 ? (
-        <p>Cannot interpret rules</p>
+        <div className="carousel-item">
+          <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card-body">
+              <p>Cannot interpret rules</p>
+            </div>
+          </div>
+        </div>
       ) : (
-        <p>Abortions are banned "post-implantation".</p>
+        <div className="carousel-item">
+          <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card-body">
+              <p>Abortions are banned "post-implantation".</p>
+            </div>
+          </div>
+        </div>
       )}
       {props.gestationalLimits.exception_life === true ? (
-        <p>
-          Abortion exceptions are granted if necessary to save the pregnant
-          person's life.{" "}
-        </p>
+        <div className="carousel-item">
+          <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card-body">
+              <p>
+                Abortion exceptions are granted if necessary to save the
+                pregnant person's life.{" "}
+              </p>
+            </div>
+          </div>
+        </div>
       ) : (
-        <p>
-          Abortion is banned even in case the pregnant person's life is in
-          danger.{" "}
-        </p>
+        <div className="carousel-item">
+          <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card-body">
+              <p>
+                Abortion is banned even in case the pregnant person's life is in
+                danger.{" "}
+              </p>
+            </div>
+          </div>
+        </div>
       )}{" "}
       {props.gestationalLimits.exception_fetal &&
       props.gestationalLimits.exception_fetal !== "" ? (
-        <p>
-          Exceptions may be granted if the fetus suffers a{" "}
-          {props.gestationalLimits.exception_fetal.toLowerCase()}.{" "}
-        </p>
+        <div className="carousel-item">
+          <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card-body">
+              <p>
+                Exceptions may be granted if the fetus suffers a{" "}
+                {props.gestationalLimits.exception_fetal.toLowerCase()}.{" "}
+              </p>
+            </div>
+          </div>
+        </div>
       ) : null}
       {props.gestationalLimits.exception_rape_or_incest ? (
-        <p>Exceptions may be granted in cases of rape or incest</p>
+        <div className="carousel-item">
+          <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card-body">
+              <p>Exceptions may be granted in cases of rape or incest</p>
+            </div>
+          </div>
+        </div>
       ) : null}
     </div>
   );
