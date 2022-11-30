@@ -1,7 +1,7 @@
 const InsuranceCoverage = (props) => {
   console.log("InsuranceCoverage: props:", props);
   return (
-    <div className="carousel carousel-center max-w-md p-4 space-x-4 bg-neutral rounded-box">
+    <div className="carousel carousel-center p-4 space-x-4 bg-neutral rounded-box">
       {props.insuranceCoverage.requires_coverage && (
         <div className="carousel-item">
           <div className="card w-96 bg-base-100 shadow-xl">
