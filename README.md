@@ -14,4 +14,8 @@ You can get a preview of the app here: [Deployment](https://abortion-app.vercel.
 
 Contributors are welcome! Just fork the repo, pick up an issue and submit a PR. You can also recommend issues and features. 
 
+You can join the Slack channel [here](https://join.slack.com/t/abortionapp/shared_invite/zt-1ksyqh2w3-RvotjvP_~lj2wIAw~2DnYw")
+
 PR templates to come soon.
+
+
